@@ -197,9 +197,9 @@ function(protobuf_generate_grpc_cpp)
              "${_gRPC_PROTO_GENS_DIR}/${RELFIL_WE}.pb.cc"
              "${_gRPC_PROTO_GENS_DIR}/${RELFIL_WE}.pb.h"
       COMMAND ${_gRPC_PROTOBUF_PROTOC_EXECUTABLE}
-      ARGS --grpc_out=generate_mock_code=true:${_gRPC_PROTO_GENS_DIR}
+      ARGS --grpc_out=${_gRPC_PROTO_GENS_DIR}
            --cpp_out=${_gRPC_PROTO_GENS_DIR}
-           --plugin=protoc-gen-grpc=$<TARGET_FILE:grpc_cpp_plugin>
+           --plugin=protoc-gen-grpc=/usr/bin/grpc_cpp_plugin
            ${_protobuf_include_path}
            ${REL_FIL}
       DEPENDS ${ABS_FIL} ${_gRPC_PROTOBUF_PROTOC} grpc_cpp_plugin
@@ -6086,6 +6086,9 @@ target_link_libraries(check_epollexclusive
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc
   gpr
+  ssl
+  crypto
+  z
 )
 
   # avoid dependency on libstdc++
@@ -7718,6 +7721,9 @@ target_link_libraries(grpc_create_jwt
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc
   gpr
+  ssl
+  crypto
+  z
 )
 
   # avoid dependency on libstdc++
@@ -7927,6 +7933,9 @@ target_link_libraries(grpc_print_google_default_creds_token
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc
   gpr
+  ssl
+  crypto
+  z
 )
 
   # avoid dependency on libstdc++
@@ -8029,6 +8038,9 @@ target_link_libraries(grpc_verify_jwt
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc
   gpr
+  ssl
+  crypto
+  z
 )
 
   # avoid dependency on libstdc++
@@ -13132,6 +13144,8 @@ target_link_libraries(grpc_cpp_plugin
   ${_gRPC_PROTOBUF_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc_plugin_support
+  protoc
+  protobuf
 )
 
 
@@ -13171,6 +13185,8 @@ target_link_libraries(grpc_csharp_plugin
   ${_gRPC_PROTOBUF_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc_plugin_support
+  protoc
+  protobuf
 )
 
 
@@ -13249,6 +13265,8 @@ target_link_libraries(grpc_node_plugin
   ${_gRPC_PROTOBUF_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc_plugin_support
+  protoc
+  protobuf
 )
 
 
@@ -13288,6 +13306,8 @@ target_link_libraries(grpc_objective_c_plugin
   ${_gRPC_PROTOBUF_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc_plugin_support
+  protoc
+  protobuf
 )
 
 
@@ -13327,6 +13347,8 @@ target_link_libraries(grpc_php_plugin
   ${_gRPC_PROTOBUF_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc_plugin_support
+  protoc
+  protobuf
 )
 
 
@@ -13366,6 +13388,8 @@ target_link_libraries(grpc_python_plugin
   ${_gRPC_PROTOBUF_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc_plugin_support
+  protoc
+  protobuf
 )
 
 
@@ -13405,6 +13429,8 @@ target_link_libraries(grpc_ruby_plugin
   ${_gRPC_PROTOBUF_LIBRARIES}
   ${_gRPC_ALLTARGETS_LIBRARIES}
   grpc_plugin_support
+  protoc
+  protobuf
 )
 
 
@@ -15888,6 +15914,9 @@ target_link_libraries(gen_hpack_tables
   ${_gRPC_ALLTARGETS_LIBRARIES}
   gpr
   grpc
+  ssl
+  crypto
+  z
 )
 
 

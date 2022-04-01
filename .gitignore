@@ -1,4 +1,6 @@
 # C/C++ build outputs
+build/
+release/
 .build/
 bins
 gens
