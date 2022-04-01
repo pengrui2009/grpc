@@ -26,8 +26,9 @@ if("${gRPC_CARES_PROVIDER}" STREQUAL "module")
   endif()
 
   if(gRPC_INSTALL)
-    message(WARNING "gRPC_INSTALL will be forced to FALSE because gRPC_CARES_PROVIDER is \"module\"")
-    set(gRPC_INSTALL FALSE)
+    # message(WARNING "gRPC_INSTALL will be forced to FALSE because gRPC_CARES_PROVIDER is \"module\"")
+    message("cares set")
+    # set(gRPC_INSTALL FALSE)
   endif()
 elseif("${gRPC_CARES_PROVIDER}" STREQUAL "package")
   # Use "CONFIG" as there is no built-in cmake module for c-ares.
