@@ -53,7 +53,7 @@ mkdir -p cmake/build
 pushd cmake/build
 cmake \
     -DCMAKE_CROSSCOMPILING=true \
-    -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc \
+    -DCMAKE_C_COMPILER=/home/projects/embedded-grpc/5G_android_standalone_toolchain/bin/arm-linux-gnueabihf-gcc \
     -DCMAKE_AR=/home/projects/embedded-grpc/5G_android_standalone_toolchain/bin/arm-linux-gnueabihf-ar \
     -DCMAKE_STRIP=/home/projects/embedded-grpc/5G_android_standalone_toolchain/bin/arm-linux-gnueabihf-strip \
     -DCMAKE_LINKER=/home/projects/embedded-grpc/5G_android_standalone_toolchain/bin/arm-linux-gnueabihf-ld \
@@ -64,7 +64,7 @@ cmake \
     -DgRPC_INSTALL=ON \
     -DgRPC_PROTOBUF_PROVIDER=MODULE \
     -DgRPC_SSL_PROVIDER=MODULE \
-    -DgRPC_ZLIB_PROVIDER=MODULE \
+    -DgRPC_ZLIB_PROVIDER=module \
     -DBUILD_SHARED_LIBS=ON \
     -DRUN_HAVE_STD_REGEX=0 \
     -D_gRPC_PROTOBUF_PROTOC_EXECUTABLE=protoc \
